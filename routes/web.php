@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function(){
+    return view('tasks');
 });
+
+Route::resource('tasks','TaskController')->only([
+    'index', 'store', 'destroy',
+]);
+// Route::get('/tasks', 'TaskController@index')->name('task.index');
+// Route::post('/task', 'TaskController@store')->name('task.store');
+// Route::delete('/task/{task}', 'TaskController@destroy')->name('task.destroy');
+
